@@ -178,9 +178,18 @@ X-XSS-Protection: 1; mode=block
 
 ### Exercise 3.1 / 3.2: Deploy Agent Part 6 (`06-lab-complete/`)
 
-- **Nền tảng chính:** Railway / Render (cả `06-lab-complete/railway.toml` và `06-lab-complete/render.yaml` đã được cấu hình sẵn và đạt `PASS` theo `check_production_ready.py`).
-- **Public URL:** Xem [DEPLOYMENT.md](DEPLOYMENT.md) (điền sau khi deploy lên tài khoản Railway/Render cá nhân).
-- **Screenshots:** `screenshots/dashboard.png`, `screenshots/running.png`, `screenshots/test.png`.
+- **Nền tảng chính:** **Railway** (Root Directory `06-lab-complete`, sử dụng `06-lab-complete/Dockerfile` + `06-lab-complete/railway.toml`, kết nối managed **Redis** qua biến tham chiếu `REDIS_URL=${{Redis.REDIS_URL}}`, đặt `AGENT_API_KEY` qua Railway Variables — không ghi vào code).
+- **Public URL:** https://k5-l3-day14-deployment-agent-benchmark-obser-productio-07461da7.up.railway.app
+- **Chi tiết & lệnh kiểm tra:** Xem [DEPLOYMENT.md](DEPLOYMENT.md).
+- **Kết quả 4 lệnh tự kiểm CP6 trên URL public:**
+  - `GET /health` → **`200`** (`{"status":"ok","environment":"production"}`)
+  - `GET /ready` → **`200`** (`{"status":"ready","redis":"connected"}`)
+  - `POST /ask` (không có key) → **`401`** (`{"detail":"Invalid or missing API key"}`)
+  - `POST /ask` (có `X-API-Key: $AGENT_API_KEY`) → **`200`** (`{"question":"Hello","answer":"...","user_id":"anonymous","usage":{"input_tokens":2,"output_tokens":25,"cost_usd":1.53e-05}}`)
+- **Screenshots:**
+  - [Dashboard (Agent + Redis Online)](screenshots/dashboard.png)
+  - [Service Running & JSON Logs](screenshots/running.png)
+  - [CP6 Public URL Curl Test Results](screenshots/test.png)
 
 ### So sánh `railway.toml` vs `render.yaml`
 
