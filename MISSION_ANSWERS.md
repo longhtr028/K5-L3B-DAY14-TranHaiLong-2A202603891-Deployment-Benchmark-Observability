@@ -1,5 +1,6 @@
 # Day 14 Lab — Mission Answers
 
+> **Họ tên:** Trần Hải Long · **MSSV:** `2A202603891` · **Lớp:** `K5-L3B`  
 > **Ngày thực hiện:** 2026-11-26  
 > **Môi trường:** macOS (Apple Silicon), Python 3.11.18, Docker 29.9.2, Docker Compose v5.6.1
 

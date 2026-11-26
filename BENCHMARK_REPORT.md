@@ -2,6 +2,7 @@
 
 > Mọi con số dưới đây được trích xuất trực tiếp từ các file report trong `reports/`, `benchmark-results/`, Prometheus API, Jaeger UI và các screenshot trong `screenshots/`.
 
+**Họ tên:** Trần Hải Long (MSSV: `2A202603891` · Lớp: `K5-L3B`)  
 **Ngày chạy:** 2026-11-26  
 **Môi trường:** macOS (Apple Silicon), Python 3.11.18, Docker 29.9.2, Docker Compose v5.6.1
 
